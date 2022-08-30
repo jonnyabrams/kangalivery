@@ -1,9 +1,21 @@
-import { Text } from "react-native"
+import { useNavigation } from "@react-navigation/native";
+import { useLayoutEffect } from "react";
+import { Text, View } from "react-native";
 
 const HomeScreen = () => {
-  return (
-    <Text className="text-red-500">HomeScreen</Text>
-  )
-}
+  const navigation = useNavigation();
 
-export default HomeScreen
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  }, []);
+
+  return (
+    <View>
+      <Text className="text-red-500">HomeScreen</Text>
+    </View>
+  );
+};
+
+export default HomeScreen;
