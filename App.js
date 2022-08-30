@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeScreen from "./src/screens/HomeScreen";
 
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {
