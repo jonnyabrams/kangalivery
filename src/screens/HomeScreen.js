@@ -1,12 +1,20 @@
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
-import { Image, SafeAreaView, Text, TextInput, View } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  Text,
+  TextInput,
+  View,
+  ScrollView,
+} from "react-native";
 import {
   UserIcon,
   ChevronDownIcon,
   MagnifyingGlassIcon,
   AdjustmentsVerticalIcon,
 } from "react-native-heroicons/outline";
+import Categories from "../components/Categories";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -18,19 +26,18 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView className="bg-white pt-5">
-      <Text className="text-red-500">
-        <View className="flex-row pb-3 items-center mx-4 space-x-2 px-4">
+    <SafeAreaView className="pt-5 bg-white">
+        <View className="flex-row items-center px-4 pb-3 mx-4 space-x-2">
           <Image
             source={require("../../assets/kangalivery-logo.png")}
-            className="h-7 w-7 bg-gray-300 p-4 rounded-full"
+            className="p-4 bg-gray-300 rounded-full h-7 w-7"
           />
 
           <View className="flex-1">
-            <Text className="font-bold text-gray-400 text-xs">
+            <Text className="text-xs font-bold text-gray-400">
               Deliver Now!
             </Text>
-            <Text className="font-bold text-xl">
+            <Text className="text-xl font-bold">
               Current Location <ChevronDownIcon size={20} color="#00CCBB" />
             </Text>
           </View>
@@ -38,9 +45,9 @@ const HomeScreen = () => {
           <UserIcon size={35} color="#00CCBB" />
         </View>
 
-        <View className="flex-row items-center space-x-2 pb-2 mx-4 px-4">
-          <View className="flex-row flex-1 space-x-2 bg-gray-200 p-3">
-            <MagnifyingGlassIcon color='gray' size={20} />
+        <View className="flex-row items-center px-4 pb-2 mx-4 space-x-2">
+          <View className="flex-row flex-1 p-3 space-x-2 bg-gray-200">
+            <MagnifyingGlassIcon color="gray" size={20} />
             <TextInput
               placeholder="Restaurants and cuisines"
               keyboardType="default"
@@ -49,7 +56,13 @@ const HomeScreen = () => {
 
           <AdjustmentsVerticalIcon color="#00CCBB" />
         </View>
-      </Text>
+
+        <ScrollView
+          className="bg-gray-100"
+          contentContainerStyle={{ paddingBottom: 100 }}
+        >
+          <Categories />
+        </ScrollView>
     </SafeAreaView>
   );
 };
