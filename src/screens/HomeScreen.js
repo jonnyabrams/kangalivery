@@ -27,7 +27,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView className="pt-5 bg-white">
-        <View className="flex-row items-center px-4 pb-3 mx-4 space-x-2">
+        <View className="flex-row items-center pb-3 mx-4 space-x-2">
           <Image
             source={require("../../assets/kangalivery-logo.png")}
             className="p-4 bg-gray-300 rounded-full h-7 w-7"
