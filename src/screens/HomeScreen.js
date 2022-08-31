@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState, useEffect } from "react";
 import {
   Image,
   SafeAreaView,
@@ -17,7 +17,7 @@ import {
 
 import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
-import sanityClient from "../sanity";
+import sanityClient from "../../sanity";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -30,8 +30,22 @@ const HomeScreen = () => {
   }, []);
 
   useEffect(() => {
-    client;
+    sanityClient
+      .fetch(
+        `*[_type == "featured"] {
+             ...,
+           restaurants[]-> {
+             ...,
+             dishes[]->,
+           }
+        }`
+      )
+      .then((data) => {
+        setFeaturedCategories(data);
+      });
   }, []);
+
+  console.log(featuredCategories)
 
   return (
     <SafeAreaView className="pt-5 bg-white">
