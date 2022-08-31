@@ -8,4 +8,4 @@ For own reference: `open -a Simulator` then `expo start` then `i`
 
 --- 
 
-24:15
+1:54:31
