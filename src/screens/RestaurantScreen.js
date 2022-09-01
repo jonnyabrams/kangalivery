@@ -1,7 +1,10 @@
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { useLayoutEffect } from "react";
 import { View, Text } from "react-native";
 
 const RestaurantScreen = () => {
+  const navigation = useNavigation();
+
   const {
     params: {
       id,
@@ -17,9 +20,15 @@ const RestaurantScreen = () => {
     },
   } = useRoute();
 
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  }, []);
+
   return (
     <View>
-      <Text>RestaurantScreen</Text>
+      <Text>{title}</Text>
     </View>
   );
 };
