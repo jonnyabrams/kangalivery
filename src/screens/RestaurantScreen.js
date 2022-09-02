@@ -11,6 +11,7 @@ import {
 } from "react-native-heroicons/solid";
 
 import { urlFor } from "../../sanity";
+import DishRow from "../components/DishRow";
 
 const RestaurantScreen = () => {
   const navigation = useNavigation();
@@ -79,6 +80,21 @@ const RestaurantScreen = () => {
           </Text>
           <ChevronRightIcon color="#00CCBB" />
         </TouchableOpacity>
+      </View>
+
+      <View>
+        <Text className="px-4 pt-6 mb-3 text-xl font-bold">Menu</Text>
+
+        {dishes.map((dish) => (
+          <DishRow
+            key={dish._id}
+            id={dish._id}
+            name={dish.name}
+            description={dish.short_description}
+            price={dish.price}
+            image={dish.image}
+          />
+        ))}
       </View>
     </ScrollView>
   );
