@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { urlFor } from "../../sanity";
 import {
   addToBasket,
+  removeFromBasket,
   selectBasketItems,
   selectBasketItemsWithId,
 } from "../features/basketSlice";
@@ -17,6 +18,12 @@ const DishRow = ({ id, name, description, price, image }) => {
 
   const addItemToBasket = () => {
     dispatch(addToBasket({ id, name, description, price, image }));
+  };
+
+  const removeItemFromBasket = () => {
+    if (!items.length > 0) return;
+
+    dispatch(removeFromBasket({ id }));
   };
 
   return (
@@ -50,7 +57,7 @@ const DishRow = ({ id, name, description, price, image }) => {
       {isPressed && (
         <View className="px-4 bg-white">
           <View className="flex-row items-center pb-3 space-x-2">
-            <TouchableOpacity>
+            <TouchableOpacity onPress={removeItemFromBasket}>
               <MinusCircleIcon color="#00CCBB" size={40} />
             </TouchableOpacity>
 
