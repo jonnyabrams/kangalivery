@@ -9,6 +9,8 @@ const BasketIcon = () => {
   const navigation = useNavigation();
   const basketTotal = useSelector(selectBasketTotal);
 
+  if (items.length === 0) return null;
+
   return (
     <View className="absolute z-50 w-full bottom-10">
       <TouchableOpacity

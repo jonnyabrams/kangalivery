@@ -1,4 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
+import { useMemo } from "react";
 import { View, Text } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -9,7 +10,12 @@ const BasketScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant);
   const items = useSelector(selectBasketItems);
+  const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([]);
   const dispatch = useDispatch();
+
+  useMemo(() => {
+    
+  }, [items]);
 
   return (
     <View>
