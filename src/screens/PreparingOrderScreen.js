@@ -1,8 +1,18 @@
+import { useNavigation } from "@react-navigation/native";
+import { useEffect } from "react";
 import { View, Text, SafeAreaView } from "react-native";
 import * as Animatable from "react-native-animatable";
 import * as Progress from "react-native-progress";
 
 const PreparingOrderScreen = () => {
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate("Delivery")
+    }, 4000)
+  }, [])
+  
   return (
     <SafeAreaView className="bg-[#00CCBB] flex-1 justify-center items-center">
       <Animatable.Image
@@ -17,7 +27,7 @@ const PreparingOrderScreen = () => {
         iterationCount={1}
         className="mx-10 my-10 text-lg font-bold text-center text-white"
       >
-        Waiting for restaurant to accept your order!
+        Waiting for the restaurant to accept your order!
       </Animatable.Text>
 
       <Progress.Circle size={60} indeterminate={true} color="white" />
