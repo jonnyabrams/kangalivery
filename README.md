@@ -10,6 +10,12 @@ Alas, no actual food is delivered.
 
 ---
 
+# Video Demo
+
+https://user-images.githubusercontent.com/97295867/188323164-863f36db-a7f0-4f3d-a86d-c33a29a2f1ec.mp4
+
+---
+
 # Technologies & Libraries Used
 
 * React Native
