@@ -15,6 +15,7 @@ Alas, no actual food is delivered.
 * React Native
 * Expo
 * Nativewind CSS
+* Redux
 * React Native Animatable
 * React Native Progress
 * React Native Maps
