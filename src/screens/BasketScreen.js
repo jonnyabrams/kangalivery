@@ -12,13 +12,18 @@ import { XCircleIcon } from "react-native-heroicons/solid";
 import { useDispatch, useSelector } from "react-redux";
 
 import { urlFor } from "../../sanity";
-import { selectBasketItems, removeFromBasket } from "../features/basketSlice";
+import {
+  selectBasketItems,
+  removeFromBasket,
+  selectBasketTotal,
+} from "../features/basketSlice";
 import { selectRestaurant } from "../features/restaurantSlice";
 
 const BasketScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant);
   const items = useSelector(selectBasketItems);
+  const basketTotal = useSelector(selectBasketTotal);
   const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([]);
   const dispatch = useDispatch();
 
@@ -94,6 +99,27 @@ const BasketScreen = () => {
             </View>
           ))}
         </ScrollView>
+
+        <View className="p-5 mt-5 space-y-4 bg-white">
+          <View className="flex-row justify-between">
+            <Text className="text-gray-400">Subtotal</Text>
+            <Text className="text-gray-400">£{basketTotal.toFixed(2)}</Text>
+          </View>
+          
+          <View className="flex-row justify-between">
+            <Text className="text-gray-400">Delivery Fee</Text>
+            <Text className="text-gray-400">£1.99</Text>
+          </View>
+          
+          <View className="flex-row justify-between">
+            <Text>Order Total</Text>
+            <Text className="font-extrabold">£{(basketTotal + 1.99).toFixed(2)}</Text>
+          </View>
+
+          <TouchableOpacity className="rounded-lg bg-[#00CCBB] p-4">
+            <Text className="text-lg font-bold text-center text-white">Place Order</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
