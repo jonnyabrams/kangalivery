@@ -24,7 +24,7 @@ const BasketIcon = () => {
           View Basket
         </Text>
         <Text className="text-lg font-extrabold text-white">
-          £{basketTotal}
+          £{basketTotal.toFixed(2)}
         </Text>
       </TouchableOpacity>
     </View>

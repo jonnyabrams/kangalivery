@@ -67,7 +67,10 @@ const BasketScreen = () => {
 
         <ScrollView className="divide-y divide-gray-200">
           {Object.entries(groupedItemsInBasket).map(([key, items]) => (
-            <View key={key} className="flex-row items-center px-5 py-2 space-x-3 bg-white">
+            <View
+              key={key}
+              className="flex-row items-center px-5 py-2 space-x-3 bg-white"
+            >
               <Text className="text-[#00CCBB]">{items.length} x</Text>
               <Image
                 source={{ uri: urlFor(items[0]?.image).url() }}
@@ -76,7 +79,9 @@ const BasketScreen = () => {
               {/* items[0] as only need details of one of them */}
               <Text className="flex-1">{items[0]?.name}</Text>
 
-              <Text className="text-gray-600">£{items[0]?.price}</Text>
+              <Text className="text-gray-600">
+                £{items[0]?.price.toFixed(2)}
+              </Text>
 
               <TouchableOpacity>
                 <Text
