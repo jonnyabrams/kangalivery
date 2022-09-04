@@ -10,6 +10,17 @@ Alas, no actual food is delivered.
 
 ---
 
+# Technologies & Libraries Used
+
+* React Native
+* Expo
+* Nativewind CSS
+* React Native Animatable
+* React Native Progress
+* React Native Maps
+
+---
+
 For own reference: `open -a Simulator` then `expo start` then `i`
 
 --- 
