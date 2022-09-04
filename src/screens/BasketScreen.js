@@ -65,10 +65,10 @@ const BasketScreen = () => {
           </TouchableOpacity>
         </View>
 
-        <ScrollView>
+        <ScrollView className="divide-y divide-gray-200">
           {Object.entries(groupedItemsInBasket).map(([key, items]) => (
-            <View key={key}>
-              <Text>{items.length} x</Text>
+            <View key={key} className="flex-row items-center px-5 py-2 space-x-3 bg-white">
+              <Text className="text-[#00CCBB]">{items.length} x</Text>
               <Image
                 source={{ uri: urlFor(items[0]?.image).url() }}
                 className="w-12 h-12 rounded-full"
