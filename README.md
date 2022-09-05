@@ -2,7 +2,7 @@
 
 A Deliveroo clone using React Native. Users can select dishes from featured restaurants, then be taken to a basket which calculates the total to be paid.
 
-Upon placing the order, the app brings up a modal displaying an animation which navigates to a delivery confirmation screen after four seconds.
+Upon placing the order, the app brings up a modal displaying an animation which navigates to a delivery confirmation screen after four seconds. For some reason the map isn't showing up, but everything else is in place.
 
 Alas, no actual food is delivered.
 
